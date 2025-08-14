@@ -1,4 +1,4 @@
-/* ‰‰K7-4‚Ì•Ê‰ğ */
+/* æ¼”ç¿’7-4ã®åˆ¥è§£ */
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,22 +6,22 @@
 
 #define LENGTH	10
 
-//*** ŠÖ”ƒvƒƒgƒ^ƒCƒvéŒ¾ ***//
+//*** é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ ***//
 
-//*** mainŠÖ” ***//
+//*** mainé–¢æ•° ***//
 int main(void)
 {
 	int num;
 	char (*p)[LENGTH];
 
 
-	printf("•¶š—ñ‚Í‰½ŒÂF");
+	printf("æ–‡å­—åˆ—ã¯ä½•å€‹ï¼š");
 	scanf("%d", &num);
 
 	p = malloc(num * LENGTH);
 
 	if (p == NULL)
-		puts("‹L‰¯ˆæ‚ÌŠm•Û‚É¸”s‚µ‚Ü‚µ‚½B");
+		puts("è¨˜æ†¶åŸŸã®ç¢ºä¿ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
 	else
 	{
 		int i;
@@ -29,7 +29,7 @@ int main(void)
 
 		for (i = 0; i < num; i++)
 		{
-			printf("p[%d]F", i);
+			printf("p[%d]ï¼š", i);
 			scanf("%s", tmp);
 
 			if (strlen(tmp) > 9)
