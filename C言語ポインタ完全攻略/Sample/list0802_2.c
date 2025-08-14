@@ -3,14 +3,14 @@
 #include <time.h>
 #include <stdlib.h>
 
-//*** ŠÖ”ƒvƒƒgƒ^ƒCƒvéŒ¾ ***//
+//*** é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ ***//
 static int isA(int x);
 static int isB(int x);
 static int isC(int x);
 static int isD(int x);
 static int put_list(const int a[], int n, int (*fit)(int), const char* label);
 
-//*** mainŠÖ” ***//
+//*** mainé–¢æ•° ***//
 int main(void)
 {
 	int i;
@@ -20,34 +20,34 @@ int main(void)
 
 	srand(time(NULL));
 
-	// 0`100‚Ìƒ‰ƒ“ƒ_ƒ€“_”‚ğ¶¬
+	// 0ï½100ã®ãƒ©ãƒ³ãƒ€ãƒ ç‚¹æ•°ã‚’ç”Ÿæˆ
 	for (i = 0; i < n; i++)
 		a[i] = rand() % 101;
 
-	// ƒ‰ƒ“ƒN•Ê‚É•\¦&WŒv
-	printf("=== •]‰¿•Êˆê—— ===\n");
-	count = put_list(a, n, isA, "—D(A)");
-	printf("—D(A)l”F%d\n\n", count);
+	// ãƒ©ãƒ³ã‚¯åˆ¥ã«è¡¨ç¤º&é›†è¨ˆ
+	printf("=== è©•ä¾¡åˆ¥ä¸€è¦§ ===\n");
+	count = put_list(a, n, isA, "å„ª(A)");
+	printf("å„ª(A)äººæ•°ï¼š%d\n\n", count);
 
-	count = put_list(a, n, isB, "—Ç(B)");
-	printf("—Ç(B)l”F%d\n\n", count);
+	count = put_list(a, n, isB, "è‰¯(B)");
+	printf("è‰¯(B)äººæ•°ï¼š%d\n\n", count);
 
-	count = put_list(a, n, isC, "‰Â(C)");
-	printf("‰Â(C)l”F%d\n\n", count);
+	count = put_list(a, n, isC, "å¯(C)");
+	printf("å¯(C)äººæ•°ï¼š%d\n\n", count);
 
-	count = put_list(a, n, isD, "•s‰Â(D)");
-	printf("•s‰Â(D)l”F%d\n\n", count);
+	count = put_list(a, n, isD, "ä¸å¯(D)");
+	printf("ä¸å¯(D)äººæ•°ï¼š%d\n\n", count);
 
 	return 0;
 }
 
-//--- •]‰¿”»’èŠÖ” ---//
+//--- è©•ä¾¡åˆ¤å®šé–¢æ•° ---//
 static int isA(int x) { return x >= 80 && x <= 100; }
 static int isB(int x) { return x >= 70 && x <= 79; }
 static int isC(int x) { return x >= 60 && x <= 69; }
 static int isD(int x) { return x < 60; }
 
-//--- ğŒ‚É‡‚¤—v‘f‚ğo—Í‚µAŒ”‚ğ•Ô‚· ---//
+//--- æ¡ä»¶ã«åˆã†è¦ç´ ã‚’å‡ºåŠ›ã—ã€ä»¶æ•°ã‚’è¿”ã™ ---//
 static int put_list(const int a[], int n, int (*fit)(int), const char* label)
 {
 	int i, count = 0;
@@ -57,7 +57,7 @@ static int put_list(const int a[], int n, int (*fit)(int), const char* label)
 	{
 		if (fit(a[i]))
 		{
-			printf("š a[%2d] = %3d\n", i, a[i]);
+			printf("â˜… a[%2d] = %3d\n", i, a[i]);
 			count++;
 		}
 		else
