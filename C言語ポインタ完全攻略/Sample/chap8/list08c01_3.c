@@ -1,11 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-// Œ^’è‹`
+// å‹å®šç¾©
 typedef void (*AnimalFuncPtr)(void);
 typedef AnimalFuncPtr(*ChooseFuncPtr)(void);
 
-//*** ŠÖ”ƒvƒƒgƒ^ƒCƒvéŒ¾ ***//
+//*** é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ ***//
 static void dog(void);
 static void cat(void);
 static void monkey(void);
@@ -15,42 +15,42 @@ static AnimalFuncPtr choose_mammal(void);
 static AnimalFuncPtr choose_bird(void);
 static ChooseFuncPtr choose_category(void);
 
-//*** mainŠÖ” ***//
+//*** mainé–¢æ•° ***//
 int main(void)
 {
 	while (1)
 	{
-		// ƒJƒeƒSƒŠ‘I‘ğ
+		// ã‚«ãƒ†ã‚´ãƒªé¸æŠ
 		ChooseFuncPtr chooser = choose_category();
 		if (chooser == NULL) break;
 
-		// “®•¨‘I‘ğ
+		// å‹•ç‰©é¸æŠ
 		AnimalFuncPtr animal = chooser();
 		if (animal == NULL) continue;
 
-		animal();	// –Â‚«º
+		animal();	// é³´ãå£°
 	}
 
-	puts("I—¹‚µ‚Ü‚·B");
+	puts("çµ‚äº†ã—ã¾ã™ã€‚");
 
 	return 0;
 }
 
-//--- “®•¨‚Ì–Â‚«º ---//
-static void dog(void) { puts("ƒƒ“ƒƒ“II"); }
-static void cat(void) { puts("ƒjƒƒ`ƒIII"); }
-static void monkey(void) { puts("ƒLƒbƒLƒbII"); }
-static void crow(void) { puts("ƒJ`ƒJ`II"); }
-static void parrot(void) { puts("ƒRƒ“ƒjƒ`ƒnII"); }
+//--- å‹•ç‰©ã®é³´ãå£° ---//
+static void dog(void) { puts("ãƒ¯ãƒ³ãƒ¯ãƒ³ï¼ï¼"); }
+static void cat(void) { puts("ãƒ‹ãƒ£ï½ã‚ªï¼ï¼"); }
+static void monkey(void) { puts("ã‚­ãƒƒã‚­ãƒƒï¼ï¼"); }
+static void crow(void) { puts("ã‚«ï½ã‚«ï½ï¼ï¼"); }
+static void parrot(void) { puts("ã‚³ãƒ³ãƒ‹ãƒãƒï¼ï¼"); }
 
-//--- “®•¨‘I‘ğŠÖ”išM“û—Şj ---//
+//--- å‹•ç‰©é¸æŠé–¢æ•°ï¼ˆå“ºä¹³é¡ï¼‰ ---//
 static AnimalFuncPtr choose_mammal(void)
 {
 	int temp;
 
 	while (1)
 	{
-		printf("šM“û—ŞF(0)Œ¢ (1)”L (2)‰ (3)–ß‚éF");
+		printf("å“ºä¹³é¡ï¼š(0)çŠ¬ (1)çŒ« (2)çŒ¿ (3)æˆ»ã‚‹ï¼š");
 		if (scanf("%d", &temp) != 1) return NULL;
 		switch (temp)
 		{
@@ -62,14 +62,14 @@ static AnimalFuncPtr choose_mammal(void)
 	}
 }
 
-//--- “®•¨‘I‘ğŠÖ”i’¹—Şj ---//
+//--- å‹•ç‰©é¸æŠé–¢æ•°ï¼ˆé³¥é¡ï¼‰ ---//
 static AnimalFuncPtr choose_bird(void)
 {
 	int temp;
 
 	while (1)
 	{
-		printf("’¹—ŞF(0)ƒJƒ‰ƒX (1)ƒIƒEƒ€ (2)–ß‚éF");
+		printf("é³¥é¡ï¼š(0)ã‚«ãƒ©ã‚¹ (1)ã‚ªã‚¦ãƒ  (2)æˆ»ã‚‹ï¼š");
 		if (scanf("%d", &temp) != 1) return NULL;
 		switch (temp)
 		{
@@ -80,13 +80,13 @@ static AnimalFuncPtr choose_bird(void)
 	}
 }
 
-//--- ƒJƒeƒSƒŠ‘I‘ği“®•¨‘I‘ğŠÖ”‚ğ•Ô‚·j ---//
+//--- ã‚«ãƒ†ã‚´ãƒªé¸æŠï¼ˆå‹•ç‰©é¸æŠé–¢æ•°ã‚’è¿”ã™ï¼‰ ---//
 static ChooseFuncPtr choose_category(void)
 {
 	int temp;
 	while (1)
 	{
-		printf("ƒJƒeƒSƒŠ‘I‘ğF(0)šM“û—Ş (1)’¹—Ş (2)I—¹F");
+		printf("ã‚«ãƒ†ã‚´ãƒªé¸æŠï¼š(0)å“ºä¹³é¡ (1)é³¥é¡ (2)çµ‚äº†ï¼š");
 		if (scanf("%d", &temp) != 1) return NULL;
 		switch (temp)
 		{
