@@ -4,19 +4,19 @@
 typedef enum { Dog, Cat, Mohkey, Crow, Invalid } Animal;
 typedef void (*AnimalFP)(void);
 
-//*** ŠÖ”ƒvƒƒgƒ^ƒCƒvéŒ¾ ***//
+//*** é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ ***//
 static void dog(void);
 static void cat(void);
 static void monkey(void);
 static void crow(void);
 static AnimalFP selected_animal(void);
 
-//*** mainŠÖ” ***//
+//*** mainé–¢æ•° ***//
 int main(void)
 {
 	while (1)
 	{
-		void (*animal)(void) = selected_animal();
+		AnimalFP animal = selected_animal();
 		if (animal == NULL)
 			break;
 		animal();
@@ -25,20 +25,20 @@ int main(void)
 	return 0;
 }
 
-//--- “®•¨‚Ì–Â‚«º ---//
-static void dog(void) { puts("ƒƒ“ƒƒ“II"); }
-static void cat(void) { puts("ƒjƒƒ`ƒIII"); }
-static void monkey(void) { puts("ƒLƒbƒLƒbII"); }
-static void crow(void) { puts("ƒJ`ƒJ`II"); }
+//--- å‹•ç‰©ã®é³´ãå£° ---//
+static void dog(void) { puts("ãƒ¯ãƒ³ãƒ¯ãƒ³ï¼ï¼"); }
+static void cat(void) { puts("ãƒ‹ãƒ£ï½ã‚ªï¼ï¼"); }
+static void monkey(void) { puts("ã‚­ãƒƒã‚­ãƒƒï¼ï¼"); }
+static void crow(void) { puts("ã‚«ï½ã‚«ï½ï¼ï¼"); }
 
-//--- “®•¨‚ğ‘I‚Ô ---//
+//--- å‹•ç‰©ã‚’é¸ã¶ ---//
 static AnimalFP selected_animal(void)
 {
 	int temp;
 
 	while (1)
 	{
-		printf("(0)...Œ¢ (1)...”L (2)...‰ (3)...ƒJƒ‰ƒX (4)...I—¹F ");
+		printf("(0)...çŠ¬ (1)...çŒ« (2)...çŒ¿ (3)...ã‚«ãƒ©ã‚¹ (4)...çµ‚äº†ï¼š ");
 		scanf("%d", &temp);
 		switch (temp)
 		{
