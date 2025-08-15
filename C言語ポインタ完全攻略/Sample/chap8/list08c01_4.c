@@ -3,23 +3,23 @@
 
 #define MAX_ANIMALS	10
 
-//*** Œ^’è‹` ***//
-typedef void (*AnimalFuncPtr)(void);	// –Â‚«ºŒ^ŠÖ”
+//*** å‹å®šç¾© ***//
+typedef void (*AnimalFuncPtr)(void);	// é³´ãå£°å‹é–¢æ•°
 
 typedef struct
 {
-	const char* name;		// “®•¨–¼
-	AnimalFuncPtr speak;	// –Â‚«ºŠÖ”
+	const char* name;		// å‹•ç‰©å
+	AnimalFuncPtr speak;	// é³´ãå£°é–¢æ•°
 } Animal;
 
 typedef struct
 {
-	const char* name;		// ƒJƒeƒSƒŠ–¼
-	const Animal* list;		// “®•¨”z—ñ
-	int count;				// “®•¨”
+	const char* name;		// ã‚«ãƒ†ã‚´ãƒªå
+	const Animal* list;		// å‹•ç‰©é…åˆ—
+	int count;				// å‹•ç‰©æ•°
 } Category;
 
-//*** ŠÖ”ƒvƒƒgƒ^ƒCƒvéŒ¾ ***//
+//*** é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ ***//
 static void dog(void);
 static void cat(void);
 static void monkey(void);
@@ -29,45 +29,43 @@ static void eagle(void);
 static int select_menu(const char* title, const char* exit_label,
 	int count, const char* names[]);
 
-// “®•¨ƒf[ƒ^
+// å‹•ç‰©ãƒ‡ãƒ¼ã‚¿
 static const Animal mammals[] = {
-	{"Œ¢", dog},
-	{"”L", cat},
-	{"‰", monkey},
+	{"çŠ¬", dog},
+	{"çŒ«", cat},
+	{"çŒ¿", monkey},
 };
 
 static const Animal birds[] = {
-	{"ƒJƒ‰ƒX", crow},
-	{"ƒIƒEƒ€", parrot},
-	{"ƒƒV", eagle},
+	{"ã‚«ãƒ©ã‚¹", crow},
+	{"ã‚ªã‚¦ãƒ ", parrot},
+	{"ãƒ¯ã‚·", eagle},
 };
 
-// ƒJƒeƒSƒŠƒf[ƒ^
+// ã‚«ãƒ†ã‚´ãƒªãƒ‡ãƒ¼ã‚¿
 static const Category categories[] = {
-	{ "šM“û—Ş", mammals, sizeof(mammals) / sizeof(mammals[0]) },
-	{ "’¹—Ş",   birds,   sizeof(birds) / sizeof(birds[0])   },
+	{ "å“ºä¹³é¡", mammals, sizeof(mammals) / sizeof(mammals[0]) },
+	{ "é³¥é¡",   birds,   sizeof(birds) / sizeof(birds[0])   },
 };
 
-//*** mainŠÖ” ***//
+//*** mainé–¢æ•° ***//
 int main(void)
 {
-	const cat_num = sizeof(categories) / sizeof(categories[0]);
-
 	while (1)
 	{
-		// ƒJƒeƒSƒŠ–¼ƒŠƒXƒgì¬
+		// ã‚«ãƒ†ã‚´ãƒªåãƒªã‚¹ãƒˆä½œæˆ
 		const char* cat_names[sizeof(categories) / sizeof(categories[0])];
 		for (int i = 0; i < (int)(sizeof(categories) / sizeof(categories[0])); i++)
 		{
 			cat_names[i] = categories[i].name;
 		}
 
-		// ƒJƒeƒSƒŠ‘I‘ğ
-		int cat_choice = select_menu("ƒJƒeƒSƒŠ‘I‘ğ", "I—¹",
+		// ã‚«ãƒ†ã‚´ãƒªé¸æŠ
+		int cat_choice = select_menu("ã‚«ãƒ†ã‚´ãƒªé¸æŠ", "çµ‚äº†",
 			sizeof(categories) / sizeof(categories[0]), cat_names);
 		if (cat_choice == (int)(sizeof(categories) / sizeof(categories[0]))) break;
 
-		// “®•¨–¼ƒŠƒXƒgì¬
+		// å‹•ç‰©åãƒªã‚¹ãƒˆä½œæˆ
 		const Category* cat = &categories[cat_choice];
 		const char* animal_names[MAX_ANIMALS];
 		for (int i = 0; i < cat->count; i++)
@@ -75,26 +73,26 @@ int main(void)
 			animal_names[i] = cat->list[i].name;
 		}
 
-		// “®•¨‘I‘ğ
-		int ani_choice = select_menu(cat->name, "–ß‚é", cat->count, animal_names);
+		// å‹•ç‰©é¸æŠ
+		int ani_choice = select_menu(cat->name, "æˆ»ã‚‹", cat->count, animal_names);
 		if (ani_choice == cat->count) continue;
 
 		cat->list[ani_choice].speak();
 	}
 
-	puts("I—¹‚µ‚Ü‚·B");
+	puts("çµ‚äº†ã—ã¾ã™ã€‚");
 	return 0;
 }
 
-//--- “®•¨‚Ì–Â‚«º ---//
-static void dog(void) { puts("ƒƒ“ƒƒ“II"); }
-static void cat(void) { puts("ƒjƒƒ`ƒIII"); }
-static void monkey(void) { puts("ƒLƒbƒLƒbII"); }
-static void crow(void) { puts("ƒJ`ƒJ`II"); }
-static void parrot(void) { puts("ƒRƒ“ƒjƒ`ƒnII"); }
-static void eagle(void) { puts("ƒs[ƒqƒ‡ƒƒII"); }
+//--- å‹•ç‰©ã®é³´ãå£° ---//
+static void dog(void) { puts("ãƒ¯ãƒ³ãƒ¯ãƒ³ï¼ï¼"); }
+static void cat(void) { puts("ãƒ‹ãƒ£ï½ã‚ªï¼ï¼"); }
+static void monkey(void) { puts("ã‚­ãƒƒã‚­ãƒƒï¼ï¼"); }
+static void crow(void) { puts("ã‚«ï½ã‚«ï½ï¼ï¼"); }
+static void parrot(void) { puts("ã‚³ãƒ³ãƒ‹ãƒãƒï¼ï¼"); }
+static void eagle(void) { puts("ãƒ”ãƒ¼ãƒ’ãƒ§ãƒ­ãƒ­ï¼ï¼"); }
 
-//--- ƒƒjƒ…[•\¦‚Æ‘I‘ğ ---//
+//--- ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¡¨ç¤ºã¨é¸æŠ ---//
 static int select_menu(const char* title, const char* exit_label,
 	int count, const char* names[])
 {
@@ -104,11 +102,11 @@ static int select_menu(const char* title, const char* exit_label,
 		printf("\n%s\n", title);
 		for (int i = 0; i < count; i++)
 		{
-			printf("i%dj%s\n", i, names[i]);
+			printf("ï¼ˆ%dï¼‰%s\n", i, names[i]);
 		}
-		printf("i%dj%s\n", count, exit_label);
-		printf("‘I‘ğF");
-		if (scanf("%d", &choice) != 1) return count;	// I—¹ˆµ‚¢
+		printf("ï¼ˆ%dï¼‰%s\n", count, exit_label);
+		printf("é¸æŠï¼š");
+		if (scanf("%d", &choice) != 1) return count;	// çµ‚äº†æ‰±ã„
 		if (choice >= 0 && choice <= count) return choice;
 	}
 }
