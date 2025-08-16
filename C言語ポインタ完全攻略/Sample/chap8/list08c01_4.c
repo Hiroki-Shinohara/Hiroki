@@ -1,7 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-#define MAX_ANIMALS	10
+#define MAX_CATEGORIES	10
+#define MAX_ANIMALS		10
 
 //*** 型定義 ***//
 typedef void (*AnimalFuncPtr)(void);	// 鳴き声型関数
@@ -54,16 +55,16 @@ int main(void)
 	while (1)
 	{
 		// カテゴリ名リスト作成
-		const char* cat_names[sizeof(categories) / sizeof(categories[0])];
-		for (int i = 0; i < (int)(sizeof(categories) / sizeof(categories[0])); i++)
+		const char* cat_names[MAX_CATEGORIES];
+		int cat_count = (int)(sizeof(categories) / sizeof(categories[0]));	// カテゴリーの個数
+		for (int i = 0; i < cat_count; i++)
 		{
 			cat_names[i] = categories[i].name;
 		}
 
 		// カテゴリ選択
-		int cat_choice = select_menu("カテゴリ選択", "終了",
-			sizeof(categories) / sizeof(categories[0]), cat_names);
-		if (cat_choice == (int)(sizeof(categories) / sizeof(categories[0]))) break;
+		int cat_choice = select_menu("カテゴリ選択", "終了", cat_count, cat_names);
+		if (cat_choice == cat_count) break;
 
 		// 動物名リスト作成
 		const Category* cat = &categories[cat_choice];
@@ -77,6 +78,7 @@ int main(void)
 		int ani_choice = select_menu(cat->name, "戻る", cat->count, animal_names);
 		if (ani_choice == cat->count) continue;
 
+		// 鳴き声
 		cat->list[ani_choice].speak();
 	}
 
