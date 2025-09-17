@@ -4,14 +4,14 @@
 #include <string.h>
 
 #define LENGTH	128
-#define ERR_MSG	"‹L‰¯ˆæ‚ÌŠm•Û‚É¸”s‚µ‚Ü‚µ‚½B"
+#define ERR_MSG	"è¨˜æ†¶åŸŸã®ç¢ºä¿ã«å¤±æ•—ã—ã¾ã—ãŸã€‚"
 
-//*** ŠÖ”ƒvƒƒgƒ^ƒCƒvéŒ¾ ***//
+//*** é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ ***//
 static char* str_dup(const char* s);
 static void copy_args(const char* s[], char* p[], int n);
 static void print_str(const char* p[], int n);
 
-//*** mainŠÖ” ***//
+//*** mainé–¢æ•° ***//
 int main(int argc, char* argv[])
 {
 	char** p;
@@ -38,19 +38,19 @@ int main(int argc, char* argv[])
 
 	free(p);
 
-	puts("ÀsŠ®—¹");
+	puts("å®Ÿè¡Œå®Œäº†");
 
 	return 0;
 }
 
-//--- •¶š—ñs‚ğƒRƒs[ ---//
+//--- æ–‡å­—åˆ—sã‚’ã‚³ãƒ”ãƒ¼ ---//
 static char* str_dup(const char* s)
 {
 	char* p = malloc(strlen(s) + 1);
 	return (p == NULL) ? NULL : strcpy(p, s);
 }
 
-//--- •¶š—ñs‚ğ•¶š—ñp‚ÉƒRƒs[ ---//
+//--- æ–‡å­—åˆ—sã‚’æ–‡å­—åˆ—pã«ã‚³ãƒ”ãƒ¼ ---//
 static void copy_args(const char* s[], char* p[], int n)
 {
 	for (int i = 0; i < n; i++)
@@ -63,7 +63,7 @@ static void copy_args(const char* s[], char* p[], int n)
 	}
 }
 
-//--- •¶š—ñ‚ğ•\¦ ---//
+//--- æ–‡å­—åˆ—ã‚’è¡¨ç¤º ---//
 static void print_str(const char* p[], int n)
 {
 	for (int i = 0; i < n; i++)
