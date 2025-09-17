@@ -25,6 +25,7 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
+	// 文字配列argvを表示
 	for (i = 0; i < argc; i++)
 		printf("argv[%d] = \"%s\"\n", i, argv[i]);
 
