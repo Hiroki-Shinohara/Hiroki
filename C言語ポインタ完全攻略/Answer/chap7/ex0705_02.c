@@ -3,16 +3,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define ERR_MSG		"‹L‰¯ˆæ‚ÌŠm•Û‚É¸”s‚µ‚Ü‚µ‚½B"
+#define ERR_MSG		"è¨˜æ†¶åŸŸã®ç¢ºä¿ã«å¤±æ•—ã—ã¾ã—ãŸã€‚"
 
-//*** Œ^’è‹` ***//
+//*** å‹å®šç¾© ***//
 
-//*** ŠÖ”ƒvƒƒgƒ^ƒCƒvéŒ¾ ***//
+//*** é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ ***//
 static int strary_dup(const char* s[], char* d[], size_t n);
 static void strary_print(const char* a[], size_t n);
 static void strary_free(char* a[], size_t n);
 
-//*** mainŠÖ” ***//
+//*** mainé–¢æ•° ***//
 int main(int argc, char* argv[])
 {
 	size_t n = (size_t)argc;
@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-//--- •¶š—ñ”z—ñs‚ğ”z—ñd‚É•¡»‚·‚é ---//
+//--- æ–‡å­—åˆ—é…åˆ—sã‚’é…åˆ—dã«è¤‡è£½ã™ã‚‹ ---//
 static int strary_dup(const char* s[], char* d[], size_t n)
 {
 	int i;
@@ -54,13 +54,13 @@ static int strary_dup(const char* s[], char* d[], size_t n)
 			return 1;
 		}
 
-		strcpy(d[i], s[i]);		// •¶š—ñs‚ğp‚ÉƒRƒs[
+		strcpy(d[i], s[i]);		// æ–‡å­—åˆ—sã‚’pã«ã‚³ãƒ”ãƒ¼
 	}
 
 	return 0;
 }
 
-//--- •¶š—ñ”z—ña‚ğ•\¦ ---//
+//--- æ–‡å­—åˆ—é…åˆ—aã‚’è¡¨ç¤º ---//
 static void strary_print(const char* a[], size_t n)
 {
 	for (int i = 0; i < n; i++)
@@ -69,7 +69,7 @@ static void strary_print(const char* a[], size_t n)
 	}
 }
 
-//--- ƒƒ‚ƒŠ‰ğ•ú ---//
+//--- ãƒ¡ãƒ¢ãƒªè§£æ”¾ ---//
 static void strary_free(char* a[], size_t n)
 {
 	for (size_t i = 0; i < n; i++)
