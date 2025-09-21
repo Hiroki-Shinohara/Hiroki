@@ -5,13 +5,13 @@
 
 #define LENGTH	10
 
-//*** Œ^’è‹` ***//
+//*** å‹å®šç¾© ***//
 
-//*** ŠÖ”ƒvƒƒgƒ^ƒCƒvéŒ¾ ***//
+//*** é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ ***//
 static int scmp(const void* x, const void* y);
 static int pcmp(const void* x, const void* y);
 
-//*** mainŠÖ” ***//
+//*** mainé–¢æ•° ***//
 int main(void)
 {
 	char s[][LENGTH] = { "LISP", "C++", "Ada", "Pascal", "Microsoft", "Linux", "OneNote" };
@@ -22,36 +22,36 @@ int main(void)
 	ns = np = sizeof(s) / sizeof(s[0]);
 
 	qsort(s, ns, sizeof(char[LENGTH]), scmp);
-	puts("”z—ñs¸‡ƒ\[ƒgŒã");
+	puts("é…åˆ—sæ˜‡é †ã‚½ãƒ¼ãƒˆå¾Œ");
 	for (i = 0; i < ns; i++)
 		printf("s[%d] = \"%s\"\n", i, s[i]);
 
 	qsort(p, np, sizeof(char*), pcmp);
-	puts("\n”z—ñp¸‡ƒ\[ƒgŒã");
+	puts("\né…åˆ—pæ˜‡é †ã‚½ãƒ¼ãƒˆå¾Œ");
 	for (i = 0; i < ns; i++)
 		printf("p[%d] = \"%s\"\n", i, p[i]);
 
 	return 0;
 }
 
-//--- ”z—ñs‚Ì”äŠrŠÖ” ---//
+//--- é…åˆ—sã®æ¯”è¼ƒé–¢æ•° ---//
 static int scmp(const void* x, const void* y)
 {
-	// qsortŠÖ”‚É‚ÍuChar (*)[LENGTH]vŒ^‚ª“n‚³‚ê‚Ä‚¢‚é‚Ì‚Å
+	// qsorté–¢æ•°ã«ã¯ã€ŒChar (*)[LENGTH]ã€å‹ãŒæ¸¡ã•ã‚Œã¦ã„ã‚‹ã®ã§
 	const char (*px)[LENGTH] = (const char (*)[LENGTH])x;
 	const char (*py)[LENGTH] = (const char (*)[LENGTH])y;
 
-	// strcmp‚É“n‚·‚Ì‚Í•¶š—ñ‚Ìæ“ª‚Ö‚Ìƒ|ƒCƒ“ƒ^iChar*Œ^j
+	// strcmpã«æ¸¡ã™ã®ã¯æ–‡å­—åˆ—ã®å…ˆé ­ã¸ã®ãƒã‚¤ãƒ³ã‚¿ï¼ˆChar*å‹ï¼‰
 	return strcmp(*px, *py);
 }
 
-//--- ”z—ñp‚Ì”äŠrŠÖ” ---//
+//--- é…åˆ—pã®æ¯”è¼ƒé–¢æ•° ---//
 static int pcmp(const void* x, const void* y)
 {
-	// qsortŠÖ”‚É‚ÍuChar**vŒ^‚ª“n‚³‚ê‚Ä‚¢‚é‚Ì‚Å
+	// qsorté–¢æ•°ã«ã¯ã€ŒChar**ã€å‹ãŒæ¸¡ã•ã‚Œã¦ã„ã‚‹ã®ã§
 	const char** px = (const char**)x;
 	const char** py = (const char**)y;
 
-	// strcmp‚É“n‚·‚Ì‚Í•¶š—ñ‚Ìæ“ª‚Ö‚Ìƒ|ƒCƒ“ƒ^iChar*Œ^j
+	// strcmpã«æ¸¡ã™ã®ã¯æ–‡å­—åˆ—ã®å…ˆé ­ã¸ã®ãƒã‚¤ãƒ³ã‚¿ï¼ˆChar*å‹ï¼‰
 	return strcmp(*px, *py);
 }
